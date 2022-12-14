@@ -83,7 +83,7 @@ let active = 0;
 const thum = document.getElementsByClassName('thum-item');
 //assegno la classe active alla prima immagine delle thumbnails
 thum[active].classList.add('active');
-// creo la funzione riutilizzabile per scorrere le slide
+// creo la funzione riutilizzabile per passare alla slide successiva
 function goToNextSlide(){
       // elimino la classe active dagll'elemento precedenti
       mainImg[active].classList.remove('active');
@@ -101,6 +101,23 @@ function goToNextSlide(){
       thum[active].classList.add('active');    
 }
 
+//creo lafunzione riutilizzabile per passare alla slide precendete
+function goToPrevSlide(){
+    // elimino la classe active dagli elemnti precedenti
+    mainImg[active].classList.remove('active');
+    thum[active].classList.remove('active');
+    //diminuisco il suo valore di 1
+    active--;
+    //se il valore di active è minore di 0, visualizzo l'ultima immagine
+    if (active < 0){
+        active = 4;
+    }
+    
+    //aggiungo la classe active al nuovo elemento dell'array delle immagini 
+    mainImg[active].classList.add('active');
+    thum[active].classList.add('active');
+}
+
 //mi collego ai div nel big-container
 const mainImg = document.getElementsByClassName('item')
 //assegno la classe active alla prima immagine
@@ -115,22 +132,30 @@ next.addEventListener('click', function(){
 
 //collego la freccia in su dell'HTML ad una costante
 const prev = document.getElementById('prev');
-// al click della freccia in su, creo la funzione per scorrere all'indietro le immagini
+// al click della freccia in su, invoco la funzione per passare alla slide precedente
 prev.addEventListener('click', function(){
-    // elimino la classe active dagli elemnti precedenti
-    mainImg[active].classList.remove('active');
-    thum[active].classList.remove('active');
-    //diminuisco il suo valore di 1
-    active--;
-    //se il valore di active è minore di 0, visualizzo l'ultima immagine
-    if (active < 0){
-        active = 4;
-    }
-    
-    //aggiungo la classe active al nuovo elemento dell'array delle immagini 
-    mainImg[active].classList.add('active');
-    thum[active].classList.add('active');
+    goToPrevSlide()
 })
 
 // dichiaro una costante alla quale assegno l'intervallo ripetuto ogni 3 secondi della mia funzione 
 let myInterval = setInterval(goToNextSlide,3000);
+
+//collego il pulsante play ad una costante
+const play = document.getElementById('play');
+//collego il pulsante stop ad una costante
+const stop = document.getElementById('stop');
+// collego il pulsante back ad una costante 
+const back = document.getElementById('backward');
+
+// fermo l'autoplay al click di stop con clearInterval 
+stop.addEventListener('click', function(){
+    clearInterval(myInterval);
+})
+// faccio ripartire l'autoplay al click di Play
+play.addEventListener('click', function(){
+    myInterval = setInterval(goToNextSlide, 3000);
+})
+//inverto l'autoplay al click di back
+back.addEventListener('click', function(){
+    myInterval = setInterval(goToPrevSlide, 3000)
+})

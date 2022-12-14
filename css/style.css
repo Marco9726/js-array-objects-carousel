@@ -45,6 +45,7 @@ main{
     margin: 0 auto;
     position: relative;
     display: flex;
+    flex-wrap: wrap;
 }
 
 #big-img-container{
@@ -73,8 +74,6 @@ main{
     opacity: 1;
 }
 
-
-
 .circle-button{
     height: 2.5rem;
     width: 2.5rem;
@@ -91,7 +90,7 @@ main{
 }
 
 .circle-button:hover{
-    background-color: grey;
+    background-color: rgb(166, 164, 164);
 }
 
 .circle-button i{
@@ -105,3 +104,39 @@ main{
 .circle-button.down{
     bottom: .5rem;
 }
+
+/* BUTTONS  */
+#buttons{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: .5rem;
+}
+
+#buttons i{
+    font-size: 1.3rem;
+}
+
+#buttons button{
+    height: 2.5rem;
+    width: 2.5rem;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    background-color: lightgray;
+}
+
+#buttons button:hover{
+    background-color: rgb(202, 200, 200);
+    box-shadow: rgba(0, 0, 0, 0.874) 0px 5px 5px;
+}
+
+#buttons #backward i{
+    position: relative;
+    right: .1rem;
+}
+
+#stop{
+    margin: 0 .5rem;
+}
+
