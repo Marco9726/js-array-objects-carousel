@@ -27,6 +27,8 @@ const mainArray = [
     }
 ]
 
+//creo un secondo array vuoto che conterrà le immagini
+const arrayImg = [];
 //creo un for per ciclare gli oggetti dell'array
 for(i=0;i<mainArray.length;i++){
     //creo i div che conterranno le immagini grandi
@@ -43,8 +45,57 @@ for(i=0;i<mainArray.length;i++){
     tagImg.src =`./img/${img}`;
     //inserisco le img nei div
     bigImgDiv.appendChild(tagImg);
-    //inserisco i div nell'HTML
+    //inserisco i div nell'HTML e nell'array delle immagini
     document.getElementById('big-img-container').appendChild(bigImgDiv);
-
-    
+    arrayImg.push(bigImgDiv)
+  
 }
+
+//creo un contatore da assegnare alla variabile Active
+let active = 0;
+// creo la funzione riutilizzabile per scorrere le slide
+function goToNextSlide(){
+      // elimino la classe active dagll'elemento precedenti
+      arrayImg[active].classList.remove('active');
+      // thum[active].classList.remove('active');
+
+      //incremento il valore di active 1
+      active++
+      // se il valore di Active arriva 5, visualizzo la prima immagine
+      if (active > arrayImg.length - 1){
+          active = 0;
+      }
+      
+      //assegno la classe active al nuovo elemento dell'array delle immagini
+      arrayImg[active].classList.add('active');
+      // thum[active].classList.add('active');    
+}
+
+//assegno la classe active alla prima immagine
+arrayImg[active].classList.add('active');
+
+//collego la freccia in giù dell'HTML ad una costante
+const next = document.getElementById('next');
+// al click della freccia in giù, invoco la funzione per scorrere le slide 
+next.addEventListener('click', function(){
+    goToNextSlide()  
+});
+
+//collego la freccia in su dell'HTML ad una costante
+const prev = document.getElementById('prev');
+// al click della freccia in su, creo la funzione per scorrere all'indietro le immagini
+prev.addEventListener('click', function(){
+    // elimino la classe active dagli elemnti precedenti
+    arrayImg[active].classList.remove('active');
+    // thum[itemActive].classList.remove('active');
+    //diminuisco il suo valore di 1
+    active--;
+    //se il valore di active è minore di 0, visualizzo l'ultima immagine
+    if (active < 0){
+        active = 4;
+    }
+    
+    //aggiungo la classe active al nuovo elemento dell'array delle immagini 
+    arrayImg[active].classList.add('active');
+    // thum[itemActive].classList.add('active');
+})
