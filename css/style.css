@@ -24,3 +24,37 @@ main{
     position: absolute;
     right: 0;
 }
+
+.thum-item{
+    height: 20%;
+}
+
+.circle-button{
+    height: 2.5rem;
+    width: 2.5rem;
+    background-color: lightgray;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    cursor: pointer;
+}
+
+.circle-button:hover{
+    background-color: grey;
+}
+
+.circle-button i{
+    font-size: 1.75rem;
+}
+
+.circle-button.up{
+    top: .5rem;
+}
+
+.circle-button.down{
+    bottom: .5rem;
+}
