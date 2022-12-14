@@ -10,6 +10,13 @@
 .active{
     display: block;
 }
+.item{
+    display: none;
+}
+/* img{
+    object-position: center;
+    object-fit: cover;
+} */
 /* MAIN  */
 main{
     padding-top: 6rem;
@@ -20,13 +27,18 @@ main{
     height: 60vh;
     margin: 0 auto;
     position: relative;
+    display: flex;
+}
+
+#big-img-container{
+    height: 100%;
+    width: 80%;
 }
 /* THUMBNALIS  */
 #thumbnails{
     height: 100%;
     width: 20%;
-    position: absolute;
-    right: 0;
+    position: relative;
 }
 
 .thum-item{
