@@ -3,6 +3,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Khula', sans-serif;
 }
 .border-black{
     border: 1px solid black;
@@ -33,6 +34,7 @@ p{
     right: 3%;
     font-size: 1.25rem;
     text-shadow: rgba(0, 0, 0, 0.874) 0px 5px 15px;
+    line-height: 1.5rem;
 }
 /* MAIN  */
 main{
