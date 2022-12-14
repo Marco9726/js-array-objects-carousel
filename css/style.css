@@ -3,7 +3,6 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Khula', sans-serif;
 }
 .border-black{
     border: 1px solid black;
@@ -56,6 +55,7 @@ main{
     position: relative;
     color: white;
     text-align: end;
+    font-family: 'Khula', sans-serif;
 }
 
 /* THUMBNALIS  */
