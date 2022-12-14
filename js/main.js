@@ -33,13 +33,13 @@ const arrayImg = [];
 for(i=0;i<mainArray.length;i++){
     //creo i div che conterranno le immagini grandi
     const bigImgDiv = document.createElement('div');
-    //assegno la classe item(display none) al div appena creato
+    //assegno la classe item(display none) ai div appena creati
     bigImgDiv.classList.add('item');
     //creo l'elemento HTML img
     const tagImg = document.createElement('img');
     //assegno ad una costante il valore degli oggetti
     const game = mainArray[i];
-    //assegno in una costante il valore della proprietà 'img' degli oggetti
+    //assegno ad una costante il valore della proprietà 'img' degli oggetti
     const img = game.img;
     //rintraccio il percorso dell'immagine grazie alla costante appena creata
     tagImg.src =`./img/${img}`;
@@ -48,6 +48,19 @@ for(i=0;i<mainArray.length;i++){
     //inserisco i div nell'HTML e nell'array delle immagini
     document.getElementById('big-img-container').appendChild(bigImgDiv);
     arrayImg.push(bigImgDiv)
+
+    //////Thumbnails//////
+
+    //creo i div che conterranno le immagini thumbnails
+    const thumDiv = document.createElement('div');
+    //assegno la classe 'thum-item' ai div appena creati
+    thumDiv.classList.add('thum-item');
+    //inserisco le img nei div
+    thumDiv.innerHTML = `<img src="./img/${img}">`
+    //inserisco i div nell'HTML
+    console.log(thumDiv);
+    document.getElementById('thumbnails').appendChild(thumDiv);
+
   
 }
 
