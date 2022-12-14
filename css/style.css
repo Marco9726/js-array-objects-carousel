@@ -1,3 +1,4 @@
+ /* UTILITY CLASS  */
 *{
     margin: 0;
     padding: 0;
@@ -6,7 +7,10 @@
 .border-black{
     border: 1px solid black;
 }
-
+.active{
+    display: block;
+}
+/* MAIN  */
 main{
     padding-top: 6rem;
 }
@@ -17,7 +21,7 @@ main{
     margin: 0 auto;
     position: relative;
 }
-
+/* THUMBNALIS  */
 #thumbnails{
     height: 100%;
     width: 20%;
