@@ -7,7 +7,7 @@ const mainArray = [
     },
     {
         img: '02.webp',
-        title: 'Ratchet & Clanl: Rift Apart',
+        title: 'Ratchet & Clank: Rift Apart',
         descrition: 'Ratchet & Clank: Rift Apart è un videogioco a piattaforme e sparatutto in terza persona sviluppato da Insomniac Games e pubblicato da Sony Interactive Entertainment per PlayStation 5.'
     },
     {
@@ -26,7 +26,6 @@ const mainArray = [
         descrition: 'Marvels Avengers è un videogioco action-adventure sviluppato dalla Crystal Dynamics e Eidos Montréal, e pubblicato dalla Square Enix.'
     }
 ]
-
 
 //creo un for per ciclare gli oggetti dell'array
 for(i=0;i<mainArray.length;i++){
@@ -132,3 +131,6 @@ prev.addEventListener('click', function(){
     mainImg[active].classList.add('active');
     thum[active].classList.add('active');
 })
+
+// dichiaro una costante alla quale assegno l'intervallo ripetuto ogni 3 secondi della mia funzione 
+let myInterval = setInterval(goToNextSlide,3000);
