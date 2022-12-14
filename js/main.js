@@ -27,8 +27,7 @@ const mainArray = [
     }
 ]
 
-//creo un secondo array vuoto che conterrà le immagini
-const arrayImg = [];
+
 //creo un for per ciclare gli oggetti dell'array
 for(i=0;i<mainArray.length;i++){
     //creo i div che conterranno le immagini grandi
@@ -45,9 +44,26 @@ for(i=0;i<mainArray.length;i++){
     tagImg.src =`./img/${img}`;
     //inserisco le img nei div
     bigImgDiv.appendChild(tagImg);
-    //inserisco i div nell'HTML e nell'array delle immagini
+    //inserisco i div nell'HTML 
     document.getElementById('big-img-container').appendChild(bigImgDiv);
-    arrayImg.push(bigImgDiv)
+
+    //creo l'elemento HTML h2
+    const tagH2 = document.createElement('h2');
+    //assegno ad una costante il valora della proprità 'title' degli oggetti
+    const title = game.title;
+    //inserisco il la stringa di 'title' nell'h2
+    tagH2.innerHTML = title;
+    //inserisco l'h2 nel div
+    bigImgDiv.appendChild(tagH2);
+
+    //creo l'elemento HTML p
+    const par = document.createElement('p');
+    //assegno ad una costante il valore della proprietà 'descrition' degli oggetti
+    const descrition = game.descrition;
+    //inserisco la stringa di 'descrition' nel p
+    par.innerHTML = descrition;
+    // inserisco il p nel div
+    bigImgDiv.appendChild(par);
 
     //////Thumbnails//////
 
@@ -58,34 +74,38 @@ for(i=0;i<mainArray.length;i++){
     //inserisco le img nei div
     thumDiv.innerHTML = `<img src="./img/${img}">`
     //inserisco i div nell'HTML
-    console.log(thumDiv);
     document.getElementById('thumbnails').appendChild(thumDiv);
 
-  
 }
 
 //creo un contatore da assegnare alla variabile Active
 let active = 0;
+// mi collego ai div nella thumbnails 
+const thum = document.getElementsByClassName('thum-item');
+//assegno la classe active alla prima immagine delle thumbnails
+thum[active].classList.add('active');
 // creo la funzione riutilizzabile per scorrere le slide
 function goToNextSlide(){
       // elimino la classe active dagll'elemento precedenti
-      arrayImg[active].classList.remove('active');
-      // thum[active].classList.remove('active');
+      mainImg[active].classList.remove('active');
+      thum[active].classList.remove('active');
 
       //incremento il valore di active 1
       active++
       // se il valore di Active arriva 5, visualizzo la prima immagine
-      if (active > arrayImg.length - 1){
+      if (active > mainImg.length - 1){
           active = 0;
       }
       
       //assegno la classe active al nuovo elemento dell'array delle immagini
-      arrayImg[active].classList.add('active');
-      // thum[active].classList.add('active');    
+      mainImg[active].classList.add('active');
+      thum[active].classList.add('active');    
 }
 
+//mi collego ai div nel big-container
+const mainImg = document.getElementsByClassName('item')
 //assegno la classe active alla prima immagine
-arrayImg[active].classList.add('active');
+mainImg[active].classList.add('active');
 
 //collego la freccia in giù dell'HTML ad una costante
 const next = document.getElementById('next');
@@ -99,8 +119,8 @@ const prev = document.getElementById('prev');
 // al click della freccia in su, creo la funzione per scorrere all'indietro le immagini
 prev.addEventListener('click', function(){
     // elimino la classe active dagli elemnti precedenti
-    arrayImg[active].classList.remove('active');
-    // thum[itemActive].classList.remove('active');
+    mainImg[active].classList.remove('active');
+    thum[active].classList.remove('active');
     //diminuisco il suo valore di 1
     active--;
     //se il valore di active è minore di 0, visualizzo l'ultima immagine
@@ -109,6 +129,6 @@ prev.addEventListener('click', function(){
     }
     
     //aggiungo la classe active al nuovo elemento dell'array delle immagini 
-    arrayImg[active].classList.add('active');
-    // thum[itemActive].classList.add('active');
+    mainImg[active].classList.add('active');
+    thum[active].classList.add('active');
 })

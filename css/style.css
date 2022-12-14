@@ -21,6 +21,19 @@ img{
     width: 100%;
     height: 100%;
 }
+h2{
+    position: absolute;
+    bottom: 20%;
+    right: 3%;
+    text-shadow: rgba(0, 0, 0, 0.874) 0px 5px 15px;
+}
+p{
+    position: absolute;
+    bottom: 10%;
+    right: 3%;
+    font-size: 1.25rem;
+    text-shadow: rgba(0, 0, 0, 0.874) 0px 5px 15px;
+}
 /* MAIN  */
 main{
     padding-top: 6rem;
@@ -37,27 +50,30 @@ main{
 #big-img-container{
     height: 100%;
     width: 80%;
+    position: relative;
+    color: white;
+    text-align: end;
 }
+
 /* THUMBNALIS  */
 #thumbnails{
     height: 100%;
     width: 20%;
     position: relative;
+    background-color: black;
 }
 
 .thum-item{
     height: 20%;
+    opacity: .5;
 }
 
-.thum-item::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0,0,0,0.12);
+.thum-item.active{
+    border: 2px solid white;  
+    opacity: 1;
 }
+
+
 
 .circle-button{
     height: 2.5rem;
