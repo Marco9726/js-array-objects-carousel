@@ -147,15 +147,25 @@ const stop = document.getElementById('stop');
 // collego il pulsante back ad una costante 
 const back = document.getElementById('backward');
 
+let check = false;
 // fermo l'autoplay al click di stop con clearInterval 
 stop.addEventListener('click', function(){
-    clearInterval(myInterval);
+    if(check == false){
+        clearInterval(myInterval);
+        check == true;
+    }
 })
 // faccio ripartire l'autoplay al click di Play
 play.addEventListener('click', function(){
-    myInterval = setInterval(goToNextSlide, 3000);
+    if(check == true){
+        myInterval = setInterval(goToNextSlide, 3000);
+        check == false;
+    }
 })
 //inverto l'autoplay al click di back
 back.addEventListener('click', function(){
-    myInterval = setInterval(goToPrevSlide, 3000)
+    if(check == true){
+        myInterval = setInterval(goToPrevSlide, 3000);
+        check == false;
+    }
 })

@@ -35,9 +35,25 @@ p{
     text-shadow: rgba(0, 0, 0, 0.874) 0px 5px 15px;
     line-height: 1.5rem;
 }
+body{
+    background-image: url('https://wallpaperaccess.com/full/2838473.jpg');
+    background-size: cover;
+}
 /* MAIN  */
 main{
-    padding-top: 6rem;
+    display: flex;
+    align-items: center;
+    height: 100vh;
+    position: relative;
+}
+
+#logo-container{
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
 }
 
 .container{
@@ -47,6 +63,7 @@ main{
     position: relative;
     display: flex;
     flex-wrap: wrap;
+    box-shadow: rgba(0,0,0,0.75) 0px 15px 30px;
 }
 
 #big-img-container{
