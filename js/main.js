@@ -152,20 +152,20 @@ let check = false;
 stop.addEventListener('click', function(){
     if(check == false){
         clearInterval(myInterval);
-        check == true;
+        check = true;
     }
 })
 // faccio ripartire l'autoplay al click di Play
 play.addEventListener('click', function(){
     if(check == true){
         myInterval = setInterval(goToNextSlide, 3000);
-        check == false;
+        check = false;
     }
 })
 //inverto l'autoplay al click di back
 back.addEventListener('click', function(){
     if(check == true){
         myInterval = setInterval(goToPrevSlide, 3000);
-        check == false;
+        check = false;
     }
 })
