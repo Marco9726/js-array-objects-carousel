@@ -83,6 +83,19 @@ let active = 0;
 const thum = document.getElementsByClassName('thum-item');
 //assegno la classe active alla prima immagine delle thumbnails
 thum[active].classList.add('active');
+
+for(let i = 0; i<thum.length; i++){
+    let thumItem = thum[i];
+    thumItem.addEventListener('click', function(){
+        mainImg[active].classList.remove('active');
+        thum[active].classList.remove('active');
+
+        active = i
+
+        mainImg[active].classList.add('active');
+        thum[active].classList.add('active');
+    })
+}
 // creo la funzione riutilizzabile per passare alla slide successiva
 function goToNextSlide(){
       // elimino la classe active dagll'elemento precedenti

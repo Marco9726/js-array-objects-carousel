@@ -86,6 +86,7 @@ main{
 .thum-item{
     height: 20%;
     opacity: .5;
+    cursor: pointer;
 }
 
 .thum-item.active{
