@@ -77,6 +77,16 @@ for(i=0;i<mainArray.length;i++){
 
 }
 
+//creo due funzione riutilizzabili per aggiungere e rimuovere la classe active
+function removeActive (){
+    mainImg[active].classList.remove('active');
+    thum[active].classList.remove('active');
+}
+
+function addActive (){
+    mainImg[active].classList.add('active');
+    thum[active].classList.add('active');
+}
 //creo un contatore da assegnare alla variabile Active
 let active = 0;
 // mi collego ai div nella thumbnails 
@@ -87,48 +97,37 @@ thum[active].classList.add('active');
 for(let i = 0; i<thum.length; i++){
     let thumItem = thum[i];
     thumItem.addEventListener('click', function(){
-        mainImg[active].classList.remove('active');
-        thum[active].classList.remove('active');
-
+        removeActive();
         active = i
-
-        mainImg[active].classList.add('active');
-        thum[active].classList.add('active');
+        addActive();
     })
 }
 // creo la funzione riutilizzabile per passare alla slide successiva
 function goToNextSlide(){
       // elimino la classe active dagll'elemento precedenti
-      mainImg[active].classList.remove('active');
-      thum[active].classList.remove('active');
-
+      removeActive();
       //incremento il valore di active 1
       active++
       // se il valore di Active arriva 5, visualizzo la prima immagine
       if (active > mainImg.length - 1){
           active = 0;
-      }
-      
+      }   
       //assegno la classe active al nuovo elemento dell'array delle immagini
-      mainImg[active].classList.add('active');
-      thum[active].classList.add('active');    
+      addActive() ; 
 }
 
 //creo lafunzione riutilizzabile per passare alla slide precendete
 function goToPrevSlide(){
     // elimino la classe active dagli elemnti precedenti
-    mainImg[active].classList.remove('active');
-    thum[active].classList.remove('active');
+    removeActive();
     //diminuisco il suo valore di 1
     active--;
     //se il valore di active è minore di 0, visualizzo l'ultima immagine
     if (active < 0){
         active = 4;
     }
-    
     //aggiungo la classe active al nuovo elemento dell'array delle immagini 
-    mainImg[active].classList.add('active');
-    thum[active].classList.add('active');
+    addActive();
 }
 
 //mi collego ai div nel big-container
